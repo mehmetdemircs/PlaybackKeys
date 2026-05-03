@@ -1,0 +1,35 @@
+# Jekyll config for the GitHub Pages site that hosts PRIVACY.md.
+# A minimal custom layout (see _layouts/default.html) replaces the default
+# theme so we don't ship the "Improve this page" / "View on GitHub" footers
+# on a privacy policy that Chrome Web Store reviewers will read.
+title: PlaybackKeys
+description: Global keyboard shortcuts for browser video.
+url: https://mehmetdemircs.github.io
+baseurl: /PlaybackKeys
+
+# No theme — _layouts/default.html supplies the chrome.
+theme: null
+
+# Don't process anything we don't have to.
+exclude:
+  - LICENSE
+  - README.md
+  - manifest.json
+  - service-worker.js
+  - content/
+  - icons/
+  - onboarding/
+  - options/
+  - popup/
+  - shared/
+  - design/
+  - reviews/
+  - SPEC.md
+  - RELEASE_CHECKLIST.md
+  - .gitignore
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

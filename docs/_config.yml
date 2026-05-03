@@ -1,0 +1,19 @@
+# Jekyll config for the GitHub Pages site that hosts the privacy policy.
+# Lives in /docs because Chrome's extension loader rejects any file or
+# directory at the extension root whose name starts with "_".
+#
+# GitHub Pages source is set to: branch = main, folder = /docs.
+
+title: PlaybackKeys
+description: Global keyboard shortcuts for browser video.
+url: https://mehmetdemircs.github.io
+baseurl: /PlaybackKeys
+
+# Use the local _layouts directory only — no GitHub theme footer chrome.
+theme: null
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

@@ -112,7 +112,8 @@ thing is plain HTML / CSS / JS files loaded directly by the browser.
 
 PlaybackKeys collects nothing. No data leaves your device. Settings live in
 `chrome.storage` and are visible only to you. Full policy:
-[PRIVACY.md](./PRIVACY.md).
+[PRIVACY](https://mehmetdemircs.github.io/PlaybackKeys/PRIVACY)
+([source](./docs/PRIVACY.md)).
 
 The host permissions list is intentionally narrow (only the four built-in
 sites). For any other site, you grant access per-origin via the popup's

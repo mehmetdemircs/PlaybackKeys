@@ -230,6 +230,21 @@
     }
   `;
 
+  // Build elements via createElement instead of innerHTML so strict
+  // Trusted Types CSPs (e.g. YouTube's) don't reject the assignment.
+  function el(tag, attrs, ...children) {
+    const node = document.createElement(tag);
+    if (attrs) {
+      for (const k in attrs) {
+        if (k === "class") node.className = attrs[k];
+        else if (k === "text") node.textContent = attrs[k];
+        else node.setAttribute(k, attrs[k]);
+      }
+    }
+    for (const c of children) if (c) node.appendChild(c);
+    return node;
+  }
+
   function ensureShadow() {
     if (pkRoot) return;
     pkHostEl = document.createElement("div");
@@ -240,28 +255,23 @@
     style.textContent = SHADOW_CSS;
     pkRoot.appendChild(style);
 
-    toastEl = document.createElement("div");
-    toastEl.className = "pk-toast";
-    toastEl.innerHTML = `
-      <span class="ic" id="pk-toast-ic">▶</span>
-      <div class="body">
-        <span class="name" id="pk-toast-name">Play</span>
-        <span class="det" id="pk-toast-det"></span>
-      </div>
-    `;
+    // Toast: <div class="pk-toast"><span class="ic">▶</span><div class="body"><span class="name">…</span><span class="det">…</span></div></div>
+    toastIcEl   = el("span", { class: "ic",   text: "▶" });
+    toastNameEl = el("span", { class: "name", text: "Play" });
+    toastDetEl  = el("span", { class: "det" });
+    toastEl = el("div", { class: "pk-toast" },
+      toastIcEl,
+      el("div", { class: "body" }, toastNameEl, toastDetEl)
+    );
     pkRoot.appendChild(toastEl);
-    toastIcEl   = pkRoot.getElementById("pk-toast-ic");
-    toastNameEl = pkRoot.getElementById("pk-toast-name");
-    toastDetEl  = pkRoot.getElementById("pk-toast-det");
 
-    badgeEl = document.createElement("div");
-    badgeEl.className = "pk-badge";
-    badgeEl.title = "Click to reset to 1×";
-    badgeEl.innerHTML = `
-      <span class="dot"></span>
-      <span class="v" id="pk-badge-v">1.00×</span>
-      <span class="reset">↺ reset</span>
-    `;
+    // Badge: <div class="pk-badge"><span class="dot"></span><span class="v">1.00×</span><span class="reset">↺ reset</span></div>
+    badgeValEl = el("span", { class: "v", text: "1.00×" });
+    badgeEl = el("div", { class: "pk-badge", title: "Click to reset to 1×" },
+      el("span", { class: "dot" }),
+      badgeValEl,
+      el("span", { class: "reset", text: "↺ reset" })
+    );
     badgeEl.addEventListener("click", (e) => {
       e.stopPropagation();
       const v = pickBestVideo();
@@ -271,7 +281,6 @@
       }
     });
     pkRoot.appendChild(badgeEl);
-    badgeValEl = pkRoot.getElementById("pk-badge-v");
   }
 
   function attachShadowHost() {

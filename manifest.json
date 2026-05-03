@@ -1,0 +1,108 @@
+{
+  "manifest_version": 3,
+  "name": "PlaybackKeys",
+  "version": "0.2.0",
+  "description": "Global keyboard shortcuts for HTML5 video playback (play/pause, skip, speed) on YouTube, Vimeo, Udemy, and Coursera.",
+  "minimum_chrome_version": "111",
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "PlaybackKeys",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "options_page": "options/options.html",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://*.youtube-nocookie.com/*",
+    "*://*.vimeo.com/*",
+    "*://*.udemy.com/*",
+    "*://*.coursera.org/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.youtube-nocookie.com/*",
+        "*://*.vimeo.com/*",
+        "*://*.udemy.com/*",
+        "*://*.coursera.org/*"
+      ],
+      "js": ["content/bridge.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "world": "ISOLATED"
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.youtube-nocookie.com/*",
+        "*://*.vimeo.com/*",
+        "*://*.udemy.com/*",
+        "*://*.coursera.org/*"
+      ],
+      "js": ["content/injected.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "world": "MAIN"
+    }
+  ],
+  "commands": {
+    "1-play-pause": {
+      "suggested_key": { "default": "Ctrl+Shift+1" },
+      "description": "Play / Pause",
+      "global": true
+    },
+    "2-speed-up": {
+      "suggested_key": { "default": "Ctrl+Shift+2" },
+      "description": "Speed +",
+      "global": true
+    },
+    "3-skip-back": {
+      "suggested_key": { "default": "Ctrl+Shift+3", "mac": "Command+Shift+8" },
+      "description": "Skip back",
+      "global": true
+    },
+    "4-skip-forward": {
+      "suggested_key": { "default": "Ctrl+Shift+4", "mac": "Command+Shift+9" },
+      "description": "Skip forward",
+      "global": true
+    },
+    "5-speed-down": {
+      "description": "Speed -",
+      "global": true
+    },
+    "6-speed-reset": {
+      "description": "Reset speed to 1x",
+      "global": true
+    },
+    "7-switch-target": {
+      "description": "Switch target video tab",
+      "global": true
+    }
+  }
+}

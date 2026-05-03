@@ -1,0 +1,50 @@
+# Internal research and notes (not for public)
+reviews/
+SPEC.md
+RELEASE_CHECKLIST.md
+design/
+notes/
+scratch/
+TODO.md
+
+# Build / packaging artifacts
+*.zip
+*.crx
+*.pem
+dist/
+build/
+
+# Claude Code internal state
+.claude/
+memory/
+CLAUDE.md
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.history/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (none today, future-proofing)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+secrets/

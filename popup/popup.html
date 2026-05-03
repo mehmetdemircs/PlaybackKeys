@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>PlaybackKeys</title>
+  <link rel="stylesheet" href="../shared/tokens.css" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup">
+    <div class="pp-head">
+      <div class="left">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="11" fill="#F4B23E"/><path d="M16 16 H32 V48 H16 Z" fill="#1a1208"/><path d="M34 18 L50 32 L34 46 Z" fill="#1a1208"/></svg>
+        </span>
+        <span class="name">PlaybackKeys</span>
+      </div>
+      <span class="ver" id="pp-version"></span>
+    </div>
+
+    <div class="pp-now">
+      <div class="label"><span class="pulse" id="pp-pulse"></span><span id="pp-state-label">Controlling</span></div>
+      <div class="title" id="pp-title">No active video tab</div>
+      <div class="host" id="pp-host"></div>
+      <div class="pp-progress" id="pp-progress" hidden>
+        <div class="pp-progress-bar" id="pp-progress-bar" tabindex="0" role="slider" aria-label="Seek">
+          <div class="pp-progress-fill" id="pp-progress-fill"></div>
+          <div class="pp-progress-handle" id="pp-progress-handle"></div>
+        </div>
+        <div class="pp-progress-time" id="pp-progress-time">0:00 / 0:00</div>
+      </div>
+    </div>
+
+    <div class="pp-section">
+      <div class="head">
+        <div class="lbl">Playback</div>
+        <div class="val" id="pp-state">—</div>
+      </div>
+      <div class="pp-row">
+        <button class="pp-btn" data-cmd="3-skip-back" aria-label="Skip back">
+          <span class="kbd" data-chord="3-skip-back"></span>
+          <span class="glyph">«<span id="pp-skip-back-amt">5s</span></span>
+          <span class="lbl">SKIP BACK</span>
+        </button>
+        <button class="pp-btn primary" data-cmd="1-play-pause" id="pp-play" aria-label="Play / Pause">
+          <span class="kbd" data-chord="1-play-pause"></span>
+          <span class="glyph" id="pp-play-glyph">▶</span>
+          <span class="lbl" id="pp-play-lbl">PLAY</span>
+        </button>
+        <button class="pp-btn" data-cmd="4-skip-forward" aria-label="Skip forward">
+          <span class="kbd" data-chord="4-skip-forward"></span>
+          <span class="glyph"><span id="pp-skip-fwd-amt">5s</span>»</span>
+          <span class="lbl">SKIP FWD</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="pp-section">
+      <div class="head">
+        <div class="lbl">Speed</div>
+        <div class="val" id="pp-speed">1.00×</div>
+      </div>
+      <div class="pp-speed-meter" aria-hidden="true">
+        <div class="center"></div>
+        <div class="fill" id="pp-meter"></div>
+      </div>
+      <div class="pp-speed-row">
+        <button class="pp-btn" data-cmd="5-speed-down" aria-label="Slower">
+          <span class="kbd" data-chord="5-speed-down"></span>
+          <span class="glyph" id="pp-down-glyph">−0.25</span>
+          <span class="lbl">SLOWER</span>
+        </button>
+        <button class="pp-btn" data-cmd="6-speed-reset" id="pp-reset" aria-label="Reset speed">
+          <span class="kbd" data-chord="6-speed-reset"></span>
+          <span class="glyph">1.00×</span>
+          <span class="lbl">RESET</span>
+        </button>
+        <button class="pp-btn" data-cmd="2-speed-up" aria-label="Faster">
+          <span class="kbd" data-chord="2-speed-up"></span>
+          <span class="glyph" id="pp-up-glyph">+0.25</span>
+          <span class="lbl">FASTER</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="pp-cta" id="pp-cta-wrap" hidden>
+      <button class="pp-toggle" id="pp-toggle" role="switch" aria-checked="false">
+        <span class="left"><span class="dot"></span><span id="pp-toggle-lbl">Enabled on …</span></span>
+        <span class="switch"></span>
+      </button>
+    </div>
+
+    <div class="pp-foot">
+      <a href="#" id="pp-shortcuts">Shortcuts</a>
+      <a href="#" id="pp-settings">Settings</a>
+      <a href="https://github.com/mehmetdemircs/PlaybackKeys" target="_blank" rel="noopener">github ↗</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

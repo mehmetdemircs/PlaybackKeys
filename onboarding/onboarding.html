@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Welcome to PlaybackKeys</title>
+  <link rel="stylesheet" href="../shared/tokens.css" />
+  <link rel="stylesheet" href="onboarding.css" />
+</head>
+<body>
+  <div class="ob-shell">
+    <div class="ob-wrap">
+      <div class="ob-hero">
+        <div class="ob-step"><span class="line"></span><span>Installed</span></div>
+        <h1>You're ready. Hit a chord.</h1>
+        <p>Four shortcuts for browser video. Pause, skip, and change speed without leaving your editor.</p>
+        <div class="ob-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="120" height="120">
+            <rect x="8" y="8" width="48" height="48" rx="11" fill="#F4B23E"/>
+            <rect x="18" y="16" width="28" height="22" rx="4" fill="#1a1208"/>
+            <rect x="20" y="18" width="24" height="14" rx="2" fill="#F4B23E"/>
+            <rect x="14" y="44" width="36" height="3" rx="1.5" fill="#1a1208" opacity=".35"/>
+            <rect x="14" y="44" width="14" height="3" rx="1.5" fill="#1a1208"/>
+            <circle cx="28" cy="45.5" r="3.5" fill="#1a1208"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="ob-body">
+        <section>
+          <div class="ob-block-h"><span class="n">01</span><h3>Your default chords</h3></div>
+          <div class="ob-shortcut-list" id="ob-shortcut-list"></div>
+          <p class="ob-hint">Suggested chords for the bottom three are blank by default. Assign them in <a href="https://" id="ob-go-shortcuts-inline">Chrome shortcut settings</a>, or tweak skip interval and speed step in <a href="#" id="ob-go-settings-inline">Settings</a>.</p>
+        </section>
+
+        <section>
+          <div class="ob-block-h"><span class="n">02</span><h3>Try it on this page</h3></div>
+          <div class="ob-try">
+            <div class="ob-demo" id="ob-demo">
+              <span class="label">DEMO · video.mp4</span>
+              <div class="pp" id="ob-pp">
+                <svg viewBox="0 0 24 24" id="ob-pp-icon">
+                  <rect x="6" y="5" width="4" height="14" rx="1" fill="#3a3a40"/>
+                  <rect x="14" y="5" width="4" height="14" rx="1" fill="#3a3a40"/>
+                </svg>
+              </div>
+              <div class="speedbadge" id="ob-badge">▸ <span id="ob-badge-v">1.25×</span></div>
+              <div class="progress"><div class="progress-fill" id="ob-progress"></div></div>
+              <div class="toast" id="ob-toast">
+                <span class="ic" id="ob-toast-ic">▶</span>
+                <div class="body">
+                  <span class="name" id="ob-toast-name">Play</span>
+                  <span class="det" id="ob-toast-det">⌘⇧1</span>
+                </div>
+              </div>
+            </div>
+            <div class="ob-controls">
+              <button class="ob-control primary" data-act="toggle">
+                <span class="glyph">▶</span>
+                <span class="txt"><span class="n">Play / Pause</span><span class="d" data-chord="1-play-pause"></span></span>
+              </button>
+              <button class="ob-control" data-act="skip-back">
+                <span class="glyph">«5s</span>
+                <span class="txt"><span class="n">Skip back</span><span class="d" data-chord="3-skip-back"></span></span>
+              </button>
+              <button class="ob-control" data-act="skip-forward">
+                <span class="glyph">5s»</span>
+                <span class="txt"><span class="n">Skip fwd</span><span class="d" data-chord="4-skip-forward"></span></span>
+              </button>
+              <button class="ob-control" data-act="speed-down">
+                <span class="glyph">−</span>
+                <span class="txt"><span class="n">Slower</span><span class="d">−0.25×</span></span>
+              </button>
+              <button class="ob-control" data-act="speed-up">
+                <span class="glyph">+</span>
+                <span class="txt"><span class="n">Faster</span><span class="d" data-chord="2-speed-up"></span></span>
+              </button>
+            </div>
+          </div>
+          <div class="ob-callout">
+            <div class="pin">i</div>
+            <p id="ob-callout-text">Skip uses <b>8</b> and <b>9</b> because macOS owns <code>⌘⇧3</code> through <code>⌘⇧6</code> for screenshots. Rebind anything in <code>chrome://extensions/shortcuts</code>.</p>
+          </div>
+          <p class="ob-hint" style="margin-top:8px">Heads up: ChromeOS does not support global commands. Shortcuts only fire while Chrome is the focused window there.</p>
+        </section>
+
+        <section>
+          <div class="ob-block-h"><span class="n">03</span><h3>Use it on any video site</h3></div>
+          <p class="ob-prose">For YouTube, Vimeo, Udemy, and Coursera, you're done. For anything else: open the page, click the toolbar icon, hit <b>Enable on this site</b>.</p>
+          <div class="ob-next">
+            <a class="ob-next-card" href="#" id="ob-go-settings"><span class="arrow">→</span><div class="name">Settings</div><div class="desc">skip · speed step · per-site toggles</div></a>
+            <a class="ob-next-card" href="#" id="ob-go-shortcuts"><span class="arrow">↗</span><div class="name">Shortcuts</div><div class="desc">rebind in chrome://extensions/shortcuts</div></a>
+            <a class="ob-next-card" href="https://github.com/mehmetdemircs/PlaybackKeys" target="_blank" rel="noopener"><span class="arrow">↗</span><div class="name">GitHub</div><div class="desc">issues · feature requests · MIT source</div></a>
+          </div>
+        </section>
+      </div>
+
+      <div class="ob-foot">
+        <span class="priv"><span class="dot"></span>No telemetry · no network · MIT licensed</span>
+        <button class="btn-primary" id="ob-open-shortcuts">Open Chrome shortcut settings</button>
+      </div>
+    </div>
+  </div>
+  <script src="onboarding.js"></script>
+</body>
+</html>

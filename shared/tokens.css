@@ -1,0 +1,54 @@
+/* PlaybackKeys design tokens.
+   Locked from the v0.2 design pass. Imported by every extension page.
+   Accent color is amber: oklch(0.78 0.16 70) / #F4B23E. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces (dark, default) */
+  --pk-bg:        #0b0b0c;
+  --pk-bg-2:      #111113;
+  --pk-panel:     #141417;
+  --pk-panel-2:   #17171b;
+  --pk-line:      #232327;
+  --pk-line-2:    #2c2c31;
+
+  /* Text */
+  --pk-fg:        #ececee;
+  --pk-fg-2:      #a8a8af;
+  --pk-fg-3:      #6c6c74;
+  --pk-fg-4:      #4a4a52;
+
+  /* Accent (locked) */
+  --pk-accent:    oklch(0.78 0.16 70);
+  --pk-accent-2:  oklch(0.72 0.18 65);
+  --pk-accent-ink:#1a1208;
+
+  /* Status */
+  --pk-good:      oklch(0.78 0.13 155);
+  --pk-warn:      oklch(0.78 0.16 60);
+
+  /* Type */
+  --pk-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --pk-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+
+  /* Radii */
+  --pk-radius:    8px;
+  --pk-radius-lg: 12px;
+  --pk-radius-pill: 999px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --pk-bg:      #fafafa;
+    --pk-bg-2:    #f4f4f6;
+    --pk-panel:   #ffffff;
+    --pk-panel-2: #f4f4f6;
+    --pk-line:    #e6e6e8;
+    --pk-line-2:  #d8d8dc;
+    --pk-fg:      #1a1a1d;
+    --pk-fg-2:    #5a5a62;
+    --pk-fg-3:    #8a8a92;
+    --pk-fg-4:    #b0b0b8;
+  }
+}

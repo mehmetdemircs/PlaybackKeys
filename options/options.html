@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>PlaybackKeys Settings</title>
+  <link rel="stylesheet" href="../shared/tokens.css" />
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="opt-shell">
+    <aside class="opt-side">
+      <div class="brand">
+        <span class="mark">
+          <svg viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="11" fill="#F4B23E"/><path d="M16 16 H32 V48 H16 Z" fill="#1a1208"/><path d="M34 18 L50 32 L34 46 Z" fill="#1a1208"/></svg>
+        </span>
+        <span>PlaybackKeys</span>
+      </div>
+      <nav class="opt-nav">
+        <span class="grp">Settings</span>
+        <a href="#playback" class="nav-link">Playback</a>
+        <a href="#sites" class="nav-link">Sites</a>
+        <a href="#display" class="nav-link">Display</a>
+        <a href="#shortcuts" class="nav-link">Shortcuts</a>
+        <span class="grp" style="margin-top:12px">About</span>
+        <a href="#privacy" class="nav-link">Privacy</a>
+        <a href="#version" class="nav-link" id="opt-version">Version</a>
+      </nav>
+      <div class="opt-side-foot">
+        MIT · open source<br>
+        <a href="https://github.com/mehmetdemircs/PlaybackKeys" target="_blank" rel="noopener">github ↗</a>
+      </div>
+    </aside>
+
+    <main class="opt-main">
+      <div class="opt-h">
+        <h1>Settings</h1>
+        <span class="save"><span class="dot"></span>Saved automatically</span>
+      </div>
+      <p class="opt-sub">Changes save automatically. Per-site toggles override the global defaults.</p>
+
+      <section class="opt-group" id="playback">
+        <div class="opt-group-h"><span class="name">Playback steps</span><span class="desc">how each chord changes the player</span></div>
+
+        <div class="opt-row">
+          <div class="lbl">Skip interval<small>Seconds jumped by Skip back / forward</small></div>
+          <div>
+            <div class="seg" id="seg-skip"></div>
+            <div class="seg-custom" id="custom-skip" hidden>
+              <input type="number" id="custom-skip-input" min="1" />
+              <span class="unit">seconds</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="opt-row">
+          <div class="lbl">Speed step<small>Speed change per press</small></div>
+          <div>
+            <div class="seg" id="seg-step"></div>
+            <div class="seg-custom" id="custom-step" hidden>
+              <input type="number" id="custom-step-input" min="0.01" step="0.01" />
+              <span class="unit">× per press</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="opt-row">
+          <div class="lbl">Speed range<small>Min and max speed</small></div>
+          <div class="range-input">
+            <input class="opt-input" id="speed-min" type="number" min="0.05" step="0.05" />
+            <span class="range-arrow">→</span>
+            <input class="opt-input" id="speed-max" type="number" min="0.5" step="0.5" />
+          </div>
+        </div>
+
+        <div class="opt-row">
+          <div class="lbl">Wrap on min/max<small>Loop back to min instead of stopping at max</small></div>
+          <div class="switch-lg" id="wrap-toggle" role="switch" tabindex="0"></div>
+        </div>
+      </section>
+
+      <section class="opt-group" id="sites">
+        <div class="opt-group-h"><span class="name">Sites</span><span class="desc">where shortcuts are active</span></div>
+
+        <div class="opt-row toggle-row">
+          <div class="lbl">Run on all sites<small>Off by default. Power-user toggle: Chrome will prompt for access to every site you visit. Most users only need the four built-ins.</small></div>
+          <div class="switch-lg" id="all-sites-toggle" role="switch" tabindex="0"></div>
+        </div>
+
+        <div class="opt-row" style="grid-template-columns:1fr; gap:8px; align-items:flex-start;">
+          <div class="lbl">Active on these hosts<small>The four built-ins are always supported. To enable on another site, open it, click the toolbar icon, and choose "Enable on this site".</small></div>
+          <div class="site-list" id="site-list"></div>
+        </div>
+      </section>
+
+      <section class="opt-group" id="display">
+        <div class="opt-group-h"><span class="name">Display</span><span class="desc">in-page UI</span></div>
+
+        <div class="opt-row toggle-row">
+          <div class="lbl">Show toast on action<small>Bottom-right card after each action</small></div>
+          <div class="switch-lg" id="toast-toggle" role="switch" tabindex="0"></div>
+        </div>
+        <div class="opt-row toggle-row">
+          <div class="lbl">Show speed badge<small>Hidden when speed is 1×</small></div>
+          <div class="switch-lg" id="badge-toggle" role="switch" tabindex="0"></div>
+        </div>
+        <div class="opt-row">
+          <div class="lbl">Toast duration<small>How long the toast stays visible</small></div>
+          <div class="seg" id="seg-toastdur"></div>
+        </div>
+      </section>
+
+      <section class="opt-group" id="shortcuts">
+        <div class="opt-group-h"><span class="name">Shortcuts</span><span class="desc">read-only, bound in chrome://extensions/shortcuts</span></div>
+        <div id="shortcut-list"></div>
+        <button class="btn-ghost" id="open-shortcuts" style="margin-top:12px">Open Chrome shortcut settings ↗</button>
+      </section>
+
+      <section class="opt-group" id="privacy">
+        <div class="opt-group-h"><span class="name">Privacy</span></div>
+        <p class="opt-prose">PlaybackKeys collects nothing. No telemetry, no network requests, no analytics. Settings live in <code>chrome.storage</code> on your device. Source code at <a href="https://github.com/mehmetdemircs/PlaybackKeys" target="_blank" rel="noopener">github.com/mehmetdemircs/PlaybackKeys</a>.</p>
+      </section>
+
+      <div class="opt-foot">
+        <span class="meta">No telemetry · No network requests · Settings stored locally</span>
+        <button class="btn-ghost" id="reset-defaults">Reset all to defaults</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

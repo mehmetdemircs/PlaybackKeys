@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="256" height="256" role="img" aria-label="PlaybackKeys illustration">
+  <rect x="8" y="8" width="48" height="48" rx="11" fill="#F4B23E"/>
+  <rect x="18" y="16" width="28" height="22" rx="4" fill="#1a1208"/>
+  <rect x="20" y="18" width="24" height="14" rx="2" fill="#F4B23E"/>
+  <rect x="14" y="44" width="36" height="3" rx="1.5" fill="#1a1208" opacity=".35"/>
+  <rect x="14" y="44" width="14" height="3" rx="1.5" fill="#1a1208"/>
+  <circle cx="28" cy="45.5" r="3.5" fill="#1a1208"/>
+</svg>

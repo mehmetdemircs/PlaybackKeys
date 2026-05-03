@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="PlaybackKeys">
+  <rect x="8" y="8" width="48" height="48" rx="11" fill="#F4B23E"/>
+  <path d="M16 16 H32 V48 H16 Z" fill="#1a1208"/>
+  <path d="M34 18 L50 32 L34 46 Z" fill="#1a1208"/>
+</svg>

@@ -2,15 +2,14 @@
 
 > **Pause less. Refocus never.** Control tutorials, lectures, and course videos with global keyboard shortcuts while you code, study, or take notes.
 
+[![Add to Chrome](https://img.shields.io/badge/Chrome%20Web%20Store-Install-4285F4?style=flat-square&logo=google-chrome)](https://chromewebstore.google.com/detail/bhncnmnpinmgjpeoneoplieaakbkfdmn)
+
 A Chrome / Edge extension for developers and students who watch tutorials or
 lectures on a second monitor while typing in another app. Works on YouTube,
 Vimeo, Udemy, and Coursera out of the box. You can opt in to any other site
 from the extension popup.
 
 No account. No telemetry. No network requests. Open source under MIT.
-
-<!-- TODO: replace with hero screenshot once the design pass lands -->
-<!-- ![PlaybackKeys hero](docs/hero.png) -->
 
 ## Quick Start
 

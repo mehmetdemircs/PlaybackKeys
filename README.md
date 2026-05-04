@@ -11,6 +11,8 @@ from the extension popup.
 
 No account. No telemetry. No network requests. Open source under MIT.
 
+![PlaybackKeys hero](store/01-hero.jpg)
+
 ## Quick Start
 
 1. **Install:** [Add to Chrome](https://chromewebstore.google.com/detail/bhncnmnpinmgjpeoneoplieaakbkfdmn)

@@ -35,11 +35,16 @@ function fmtTime(sec) {
 function chordToShort(shortcut) {
   if (!shortcut) return "";
   return shortcut.split("+").map((p) => {
-    if (!isMac) return p;
-    if (p === "Ctrl" || p === "Command") return "⌘";
-    if (p === "Shift") return "⇧";
-    if (p === "Alt") return "⌥";
-    if (p === "MacCtrl") return "⌃";
+    if (isMac) {
+      if (p === "Ctrl" || p === "Command") return "⌘";
+      if (p === "Shift") return "⇧";
+      if (p === "Alt") return "⌥";
+      if (p === "MacCtrl") return "⌃";
+    } else {
+      if (p === "Ctrl") return "^";
+      if (p === "Shift") return "⇧";
+      if (p === "Alt") return "⌥";
+    }
     return p;
   }).join("");
 }

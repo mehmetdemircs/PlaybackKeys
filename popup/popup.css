@@ -177,7 +177,7 @@ body {
   background: #161618;
   border: 1px solid var(--pk-line);
   border-radius: 8px;
-  padding: 10px 8px;
+  padding: 20px 8px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -188,7 +188,7 @@ body {
   font-family: var(--pk-sans);
   transition: background .1s ease, border-color .1s ease, transform .06s ease;
   position: relative;
-  min-height: 54px;
+  min-height: 62px;
 }
 .pp-btn:hover { background: #1c1c1f; border-color: var(--pk-line-2); }
 .pp-btn:active { transform: translateY(1px); }

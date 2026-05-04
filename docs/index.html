@@ -208,6 +208,27 @@
       color: #000;
     }
 
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .full-width-image {
+      width: 100%;
+      max-width: 600px;
+      margin: 2rem 0;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
     footer {
       border-top: 1px solid #e5e7eb;
       padding-top: 2rem;
@@ -241,6 +262,10 @@
         <li>Press <code>Ctrl+Shift+1</code> to pause/play — even if you're in another app</li>
         <li>Want different keys? Customize them at <code>chrome://extensions/shortcuts</code></li>
       </ol>
+    </section>
+
+    <section>
+      <img src="../assets/hero.jpg" alt="PlaybackKeys popup showing playback controls" class="full-width-image">
     </section>
 
     <section>
@@ -298,6 +323,14 @@
         </table>
       </div>
       <p>Need more? Assign speed down, reset speed, or switch target tab at <code>chrome://extensions/shortcuts</code>.</p>
+    </section>
+
+    <section>
+      <h2>See It In Action</h2>
+      <div class="gallery">
+        <img src="../assets/shortcuts.jpg" alt="Keyboard shortcut chords visualization">
+        <img src="../assets/in-page.jpg" alt="Speed indicator and toast notification on video player">
+      </div>
     </section>
 
     <section>

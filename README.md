@@ -11,7 +11,7 @@ from the extension popup.
 
 No account. No telemetry. No network requests. Open source under MIT.
 
-![PlaybackKeys hero](store/01-hero.jpg)
+![PlaybackKeys hero](assets/hero.jpg)
 
 ## Quick Start
 

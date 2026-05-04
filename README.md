@@ -15,7 +15,8 @@ No account. No telemetry. No network requests. Open source under MIT.
 
 ## Quick Start
 
-1. **Install:** [Add to Chrome](https://chromewebstore.google.com/detail/bhncnmnpinmgjpeoneoplieaakbkfdmn)
+1. **Visit:** [PlaybackKeys website](https://mehmetdemircs.github.io/PlaybackKeys/) for full details
+2. **Install:** [Add to Chrome](https://chromewebstore.google.com/detail/bhncnmnpinmgjpeoneoplieaakbkfdmn)
 2. **Open a video** on YouTube, Vimeo, Udemy, or Coursera
 3. **Press `Ctrl+Shift+1`** to pause/play — even if Chrome isn't focused
 4. **Customize shortcuts** at `chrome://extensions/shortcuts`

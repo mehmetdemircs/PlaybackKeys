@@ -1,0 +1,61 @@
+name: Create Release Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create-release-package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create zip file
+        run: |
+          # Create a temporary directory for the release content
+          mkdir -p release-temp/PlaybackKeys
+
+          # Copy source files (respecting .gitignore patterns)
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='dist' \
+            --exclude='build' \
+            --exclude='.DS_Store' \
+            --exclude='*.swp' \
+            --exclude='*.swo' \
+            --exclude='.vscode' \
+            --exclude='.idea' \
+            --exclude='reviews' \
+            --exclude='design' \
+            --exclude='store' \
+            --exclude='notes' \
+            --exclude='scratch' \
+            --exclude='SPEC.md' \
+            --exclude='RELEASE_CHECKLIST.md' \
+            --exclude='TODO.md' \
+            --exclude='.claude' \
+            --exclude='memory' \
+            --exclude='CLAUDE.md' \
+            ./ release-temp/PlaybackKeys/
+
+          # Create the zip file
+          cd release-temp
+          zip -r PlaybackKeys-v${{ github.ref_name }}.zip PlaybackKeys/
+          cd ..
+
+          # Move zip to root for upload
+          mv release-temp/PlaybackKeys-v${{ github.ref_name }}.zip .
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: PlaybackKeys-v${{ github.ref_name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

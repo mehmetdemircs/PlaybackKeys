@@ -47,15 +47,15 @@ jobs:
 
           # Create the zip file
           cd release-temp
-          zip -r PlaybackKeys-v${{ github.ref_name }}.zip PlaybackKeys/
+          zip -r PlaybackKeys-${{ github.ref_name }}.zip PlaybackKeys/
           cd ..
 
           # Move zip to root for upload
-          mv release-temp/PlaybackKeys-v${{ github.ref_name }}.zip .
+          mv release-temp/PlaybackKeys-${{ github.ref_name }}.zip .
 
       - name: Upload to Release
         uses: softprops/action-gh-release@v1
         with:
-          files: PlaybackKeys-v${{ github.ref_name }}.zip
+          files: PlaybackKeys-${{ github.ref_name }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlaybackKeys - Global Video Hotkeys for Learning</title>
+  <meta name="description" content="Control tutorials, lectures, and course videos with global keyboard shortcuts. Play, pause, skip, and change speed without switching windows.">
+  <meta name="keywords" content="global video hotkeys, Chrome extension, pause YouTube without switching, control Udemy from another app">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #fff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    header {
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #000;
+    }
+
+    .tagline {
+      font-size: 1.125rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      padding: 0.875rem 1.75rem;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+
+    .cta-button:hover {
+      background: #2563eb;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1f2937;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #4b5563;
+      max-width: 700px;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      color: #4b5563;
+    }
+
+    code {
+      background: #f3f4f6;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .shortcut-table {
+      margin-bottom: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      max-width: 600px;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #000;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .quick-start {
+      background: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .quick-start ol {
+      margin-left: 1.5rem;
+    }
+
+    .quick-start li {
+      margin-bottom: 0.75rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-card {
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .use-cases {
+      margin-bottom: 2rem;
+    }
+
+    .use-cases ul {
+      margin-left: 0;
+      list-style: none;
+    }
+
+    .use-cases li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .use-cases li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .faq {
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 0.5rem;
+      color: #000;
+    }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 2rem;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>PlaybackKeys</h1>
+      <p class="tagline">Control web videos with keyboard shortcuts while you're working in another app. No switching windows. No breaking focus.</p>
+      <a href="https://chromewebstore.google.com/detail/bhncnmnpinmgjpeoneoplieaakbkfdmn" class="cta-button">Install for Chrome</a>
+    </header>
+
+    <section class="quick-start">
+      <h2>Quick Start</h2>
+      <ol>
+        <li>Install the extension</li>
+        <li>Open a video on YouTube, Vimeo, Udemy, or Coursera</li>
+        <li>Press <code>Ctrl+Shift+1</code> to pause/play — even if you're in another app</li>
+        <li>Want different keys? Customize them at <code>chrome://extensions/shortcuts</code></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>You're coding along with a tutorial on your second monitor. You need to pause. So you alt-tab, click the video, pause, then switch back. 20 seconds later you need to rewind. Repeat.</p>
+      <p>Built-in browser shortcuts? Only work if the video tab is focused. Hardware media keys? They barely work on Udemy or Coursera.</p>
+      <p>PlaybackKeys lets you hit <code>Ctrl+Shift+1</code> to pause from your editor. No switching. No clicking. Just one key and you're good.</p>
+    </section>
+
+    <section>
+      <h2>Who Is It For?</h2>
+      <div class="use-cases">
+        <ul>
+          <li><strong>Developers</strong> working through tutorials. Pause a 30-minute video without leaving your editor.</li>
+          <li><strong>Students</strong> taking notes in Obsidian or Word. Control the lecture while you're writing.</li>
+          <li><strong>People on Udemy/Coursera</strong> who've had enough of clicking back to the player.</li>
+          <li><strong>Anyone</strong> who has a video on one monitor and work on the other, and is tired of context-switching.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Default Shortcuts</h2>
+      <div class="shortcut-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Windows / Linux</th>
+              <th>macOS</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Ctrl+Shift+1</code></td>
+              <td><code>⌘+Shift+1</code></td>
+              <td>Play / Pause</td>
+            </tr>
+            <tr>
+              <td><code>Ctrl+Shift+2</code></td>
+              <td><code>⌘+Shift+2</code></td>
+              <td>Speed +0.25x</td>
+            </tr>
+            <tr>
+              <td><code>Ctrl+Shift+3</code></td>
+              <td><code>⌘+Shift+8</code></td>
+              <td>Skip back 5s</td>
+            </tr>
+            <tr>
+              <td><code>Ctrl+Shift+4</code></td>
+              <td><code>⌘+Shift+9</code></td>
+              <td>Skip forward 5s</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Need more? Assign speed down, reset speed, or switch target tab at <code>chrome://extensions/shortcuts</code>.</p>
+    </section>
+
+    <section>
+      <h2>Supported Sites</h2>
+      <p>Works out of the box on:</p>
+      <ul>
+        <li><strong>YouTube</strong> — tutorials, talks, educational videos</li>
+        <li><strong>Udemy</strong></li>
+        <li><strong>Coursera</strong></li>
+        <li><strong>Vimeo</strong></li>
+      </ul>
+      <p>Want to use it somewhere else? Click the extension icon and hit "Enable on this site" — Chrome will handle the permission.</p>
+    </section>
+
+    <section>
+      <h2>Privacy & Trust</h2>
+      <div class="features">
+        <div class="feature-card">
+          <h3>No Data Collection</h3>
+          <p>PlaybackKeys doesn't track anything. No accounts, no telemetry, no analytics.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Stays Local</h3>
+          <p>Your settings live on your device. The extension never talks to any server.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Open Source</h3>
+          <p>MIT licensed. Check out the code on <a href="https://github.com/mehmetdemircs/PlaybackKeys">GitHub</a> if you want.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <h3>Does it work on Chromebooks?</h3>
+        <p>Nope. Global shortcuts aren't supported on ChromeOS, so they only work when Chrome is the active window.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I use it on other video sites?</h3>
+        <p>Yep. Click the extension icon and hit "Enable on this site" for any site with an HTML5 video player. Chrome will ask for permission that one time.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Shortcuts aren't working. What's wrong?</h3>
+        <p>Usually it's because Windows or macOS already uses that shortcut. Go to <code>chrome://extensions/shortcuts</code> and pick a different one. Make sure it's set to "Global," not "In Chrome."</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What's it NOT going to do?</h3>
+        <p>It won't skip ads, bypass DRM, change the player UI, download videos, or spy on you. It just pauses, skips, and changes speed. That's the whole thing.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What about Edge?</h3>
+        <p>Not officially in the Edge store yet, but it should work since Edge uses Chromium. Let me know if you want it there.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <a href="https://chromewebstore.google.com/detail/bhncnmnpinmgjpeoneoplieaakbkfdmn">Install</a>
+        &nbsp;•&nbsp;
+        <a href="https://github.com/mehmetdemircs/PlaybackKeys">Code</a>
+        &nbsp;•&nbsp;
+        <a href="https://github.com/mehmetdemircs/PlaybackKeys/blob/main/docs/PRIVACY.md">Privacy</a>
+      </p>
+      <p style="margin-top: 1rem;">MIT licensed. Made by <a href="https://github.com/mehmetdemircs">mehmetdemircs</a>.</p>
+    </footer>
+  </div>
+</body>
+</html>

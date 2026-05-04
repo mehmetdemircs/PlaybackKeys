@@ -1,6 +1,6 @@
 # PlaybackKeys
 
-> Global keyboard shortcuts for browser video. Pause, skip, and change speed without switching tabs or apps.
+> **Pause less. Refocus never.** Control tutorials, lectures, and course videos with global keyboard shortcuts while you code, study, or take notes.
 
 A Chrome / Edge extension for developers and students who watch tutorials or
 lectures on a second monitor while typing in another app. Works on YouTube,
@@ -11,6 +11,13 @@ No account. No telemetry. No network requests. Open source under MIT.
 
 <!-- TODO: replace with hero screenshot once the design pass lands -->
 <!-- ![PlaybackKeys hero](docs/hero.png) -->
+
+## Quick Start
+
+1. **Install:** [Add to Chrome](https://chromewebstore.google.com/detail/bhncnmnpinmgjpeoneoplieaakbkfdmn)
+2. **Open a video** on YouTube, Vimeo, Udemy, or Coursera
+3. **Press `Ctrl+Shift+1`** to pause/play — even if Chrome isn't focused
+4. **Customize shortcuts** at `chrome://extensions/shortcuts`
 
 ## Why
 
@@ -137,13 +144,15 @@ prohibits modifying the standard playback UI.
 
 ## Contributing
 
-Issues and PRs welcome. Before opening a PR, please:
+Issues and PRs welcome. **v1 is focused on stability for YouTube, Vimeo, Udemy, and Coursera.** Before opening a PR, please:
 
 - Test the change on at least YouTube and one other supported site.
 - Check that both popup and `chrome://extensions/shortcuts` still load
   without errors in the service worker console.
 - Keep the no-build, no-dependency stack. If you think a dependency is
   warranted, open an issue first.
+
+Found a broken site? [Report it here](https://github.com/mehmetdemircs/PlaybackKeys/issues).
 
 ## License
 

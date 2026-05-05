@@ -2,6 +2,14 @@
 
 All notable changes to PlaybackKeys will be documented in this file.
 
+## [0.4.0] - 2026-05-05
+
+### Changed
+- Updated extension description to "Control browser videos with global keyboard shortcuts. Pause, skip, rewind, and change speed without switching tabs."
+
+### Fixed
+- Onboarding page CSS now uses design tokens instead of hardcoded dark hex values, so it renders correctly in both light and dark mode
+
 ## [0.3.0] - 2026-05-04
 
 ### Added

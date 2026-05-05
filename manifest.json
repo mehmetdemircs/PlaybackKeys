@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "PlaybackKeys",
-  "version": "0.3.0",
-  "description": "Global keyboard shortcuts for HTML5 video playback (play/pause, skip, speed) on YouTube, Vimeo, Udemy, and Coursera.",
+  "version": "0.4.0",
+  "description": "Control browser videos with global keyboard shortcuts. Pause, skip, rewind, and change speed without switching tabs.",
   "minimum_chrome_version": "111",
   "background": {
     "service_worker": "service-worker.js",

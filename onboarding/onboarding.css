@@ -13,7 +13,7 @@ body {
 .ob-wrap {
   width: 100%;
   max-width: 780px;
-  background: #0c0c0e;
+  background: var(--pk-bg-2);
   border: 1px solid var(--pk-line);
   border-radius: 16px;
   overflow: hidden;
@@ -101,7 +101,7 @@ body {
   gap: 22px;
   align-items: center;
   padding: 18px 22px;
-  background: #101012;
+  background: var(--pk-panel);
   border: 1px solid var(--pk-line);
   border-radius: 10px;
 }
@@ -130,9 +130,9 @@ body {
   font-family: var(--pk-mono);
   font-size: 16px;
   line-height: 1;
-  background: #1a1a1d;
+  background: var(--pk-panel-2);
   border: 1px solid var(--pk-line-2);
-  border-bottom-color: #0a0a0b;
+  border-bottom-color: var(--pk-bg);
   border-radius: 7px;
   padding: 8px 12px;
   color: var(--pk-fg);
@@ -152,7 +152,7 @@ body {
 
 /* Try it block */
 .ob-try {
-  background: #0a0a0b;
+  background: var(--pk-bg);
   border: 1px solid var(--pk-line);
   border-radius: 12px;
   padding: 24px;
@@ -182,7 +182,7 @@ body {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 3px;
-  background: #1a1a1d;
+  background: var(--pk-panel-2);
 }
 .ob-demo .progress-fill {
   position: absolute;
@@ -248,7 +248,7 @@ body {
 
 .ob-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .ob-control {
-  background: #161618;
+  background: var(--pk-panel);
   border: 1px solid var(--pk-line);
   border-radius: 8px;
   padding: 12px;
@@ -261,7 +261,7 @@ body {
   font-family: var(--pk-sans);
   transition: background .12s, border-color .12s;
 }
-.ob-control:hover { background: #1c1c1f; border-color: var(--pk-line-2); }
+.ob-control:hover { background: var(--pk-panel-2); border-color: var(--pk-line-2); }
 .ob-control.primary {
   background: var(--pk-accent);
   border-color: var(--pk-accent);
@@ -288,7 +288,7 @@ body {
 .ob-callout {
   display: flex;
   gap: 12px;
-  background: #101012;
+  background: var(--pk-panel);
   border: 1px solid var(--pk-line);
   border-radius: 10px;
   padding: 14px 16px;
@@ -310,7 +310,7 @@ body {
 .ob-callout code {
   font-family: var(--pk-mono);
   font-size: 11.5px;
-  background: #161618;
+  background: var(--pk-panel);
   border: 1px solid var(--pk-line);
   padding: 1px 5px;
   border-radius: 4px;
@@ -321,7 +321,7 @@ body {
 .ob-next { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 @media (max-width: 560px) { .ob-next { grid-template-columns: 1fr; } }
 .ob-next-card {
-  background: #101012;
+  background: var(--pk-panel);
   border: 1px solid var(--pk-line);
   border-radius: 10px;
   padding: 14px;
@@ -329,7 +329,7 @@ body {
   color: var(--pk-fg);
   transition: border-color .12s, background .12s;
 }
-.ob-next-card:hover { background: #141417; border-color: var(--pk-line-2); }
+.ob-next-card:hover { background: var(--pk-panel-2); border-color: var(--pk-line-2); }
 .ob-next-card .arrow { font-family: var(--pk-mono); color: var(--pk-fg-3); float: right; }
 .ob-next-card .name { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
 .ob-next-card .desc {
@@ -346,7 +346,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0a0a0b;
+  background: var(--pk-bg);
 }
 .ob-foot .priv {
   font-family: var(--pk-mono);
